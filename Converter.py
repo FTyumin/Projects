@@ -28,4 +28,15 @@ first = LabelFrame(currency_frame,text='Choose currency')
 first.pack(pady=20)
 
 
+first_entry = Entry(note)
+first_entry.pack(pady=10,padx=10)
+
+
+conversion = LabelFrame(currency_frame,text='Conversion')
+conversion.pack(pady=20)
+
+
+conversion_label = Label(conversion, text='Currency')
+conversion_label.pack(pady=10)
+
 root.mainloop()
