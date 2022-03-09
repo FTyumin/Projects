@@ -29,7 +29,7 @@ first.pack(pady=20)
 
 
 first_entry = Entry(note)
-first_entry.pack(pady=10,padx=10)
+first_entry.pack(pady=30,padx=10)
 
 
 conversion = LabelFrame(currency_frame,text='Conversion')
@@ -38,5 +38,22 @@ conversion.pack(pady=20)
 
 conversion_label = Label(conversion, text='Currency')
 conversion_label.pack(pady=10)
+
+
+conversion_entry = Entry(conversion)
+conversion_entry.pack(pady=10,padx=10)
+
+
+rate_label = Label(conversion,text="Conversion Rate")
+rate_label.pack(pady=10)
+
+rate_entry = Entry(conversion)
+rate_entry.pack(pady=10,padx=10)
+
+
+button_frame = Frame(currency_frame)
+button_frame.pack(pady=20)
+
+
 
 root.mainloop()
