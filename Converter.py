@@ -29,9 +29,26 @@ my_notebook.tab(1, state='disabled')
 
 
 def lock():
-	my_notebook.tab(1,state='disabled')
+    if not home_entry.get() or not conversion_entry.get() or not rate_entry.get():
+        messagebox.showwarning("WARNING!","Suh")
+
+    else:
+        home_entry.config(state="disabled")
+        conversion_entry.config(state="disabled")
+        rate_entry.config(state="disabled")
+
+        my_notebook.tab(1,state='normal') 
+	
 def unlock():
-	pass
+    home_entry.config(state="normal")
+    conversion_entry.config(state="normal")
+    rate_entry.config(state="normal")
+
+    my_notebook.tab(1,state='disabled')
+
+    amount_label.config(text=f'Amount of {home_entry.get()} To convert to {conversion_entry.get()}')
+    converted_label.config(text=f'Equals This Many {conversion_entry.get()}')
+
 home = LabelFrame(currency_frame, text="Your Home Currency")
 home.pack(pady=20)
 
