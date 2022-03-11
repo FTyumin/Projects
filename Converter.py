@@ -38,6 +38,10 @@ def lock():
         rate_entry.config(state="disabled")
 
         my_notebook.tab(1,state='normal') 
+
+        amount_label.config(text=f'Amount of {home_entry.get()} To convert to {conversion_entry.get()}')
+        converted_label.config(text=f'Equals This Many {conversion_entry.get()}')
+        convert_button.config(text=f'Convert from {home_entry.get()}')
 	
 def unlock():
     home_entry.config(state="normal")
@@ -46,8 +50,7 @@ def unlock():
 
     my_notebook.tab(1,state='disabled')
 
-    amount_label.config(text=f'Amount of {home_entry.get()} To convert to {conversion_entry.get()}')
-    converted_label.config(text=f'Equals This Many {conversion_entry.get()}')
+    
 
 home = LabelFrame(currency_frame, text="Your Home Currency")
 home.pack(pady=20)
@@ -92,8 +95,15 @@ amount_label = LabelFrame(conversion_frame,text="Amount To Convert")
 amount_label.pack(pady=20)
 
 def convert():
-    pass
+    converted_entry.delete(0,END)
 
+    conversion = float(rate_entry.get())* float(amount_entry.get())
+
+    conversion = round(conversion,2)
+
+    conversion = '{:,}'.format(conversion)
+
+    converted_entry.insert(0,conversion)
 def clear():
     amount_entry.delete(0,END)
     conversion_entry.delete(0,END)
@@ -102,8 +112,8 @@ def clear():
 amount_entry = Entry(amount_label,font=("Helvetica",24))
 amount_entry.pack(pady=10,padx=10)
 
-conver_button = Button(amount_label,text="Convert",command=convert)
-conver_button.pack(pady=20)
+convert_button = Button(amount_label,text="Convert",command=convert)
+convert_button.pack(pady=20)
 
 
 converted_label = LabelFrame(conversion_frame,text="Converted Currency")
