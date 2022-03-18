@@ -1,8 +1,10 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+import requests
 
-
+""" response = requests.get("/api/v7/convert?q=USD_PHP,PHP_USD&compact=ultra&apiKey=[3a4bfd21dbd8b689f84d]")
+print(response.json()) """
 
 root = Tk()
 root.title('Codemy.com - Currency Conversion')
